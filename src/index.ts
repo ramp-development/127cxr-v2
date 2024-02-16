@@ -1,7 +1,10 @@
-import { greetUser } from '$utils/greet';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { animations } from './animations';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
+  gsap.registerPlugin(ScrollTrigger);
+  animations();
 });
