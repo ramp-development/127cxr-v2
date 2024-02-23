@@ -4,6 +4,9 @@ dependencies:
   '@finsweet/ts-utils':
     specifier: ^0.40.0
     version: 0.40.0
+  '@splidejs/splide':
+    specifier: ^4.1.4
+    version: 4.1.4
   '@studio-freight/lenis':
     specifier: ^1.0.34
     version: 1.0.34
@@ -627,6 +630,10 @@ packages:
     dependencies:
       playwright: 1.39.0
     dev: true
+
+  /@splidejs/splide@4.1.4:
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+    dev: false
 
   /@studio-freight/lenis@1.0.34:
     resolution: {integrity: sha512-sEyzEjfAsTlFgDebMYT5G7tlB0ZHhWkHEoJj0g7W0YYZO093Mh4MU65o1qbNKwRacspdU04ZrA+5Wxwt4dsS7Q==}
