@@ -1,6 +1,7 @@
 import { simulateEvent } from '@finsweet/ts-utils';
 import Splide from '@splidejs/splide';
 
+import { controlScroll } from '$utils/controlScroll';
 import { queryElement } from '$utils/queryElement';
 import { queryElements } from '$utils/queryElements';
 
@@ -17,6 +18,21 @@ export const elevation = () => {
   // get the floors and detail buttons
   const floors = queryElements<HTMLDivElement>(`[${attr}="floor-wireframe"]`, component);
   const detailButtons = queryElements<HTMLButtonElement>(`[${attr}="floor-button"]`, component);
+
+  // highlight the button when the floor is hovered
+  floors.forEach((floor, index) => {
+    floor.addEventListener('mouseenter', () => {
+      detailButtons[index].classList.add('cc-hover');
+    });
+
+    floor.addEventListener('mouseleave', () => {
+      detailButtons[index].classList.remove('cc-hover');
+    });
+
+    floor.addEventListener('click', () => {
+      simulateEvent(detailButtons[index], 'click');
+    });
+  });
 
   // highlight the floor when the detail button is hovered
   detailButtons.forEach((button, index) => {
@@ -55,6 +71,20 @@ export const elevation = () => {
   );
 
   if (!sliderWrapper || !sliderComponent) return;
+
+  // mutation observer to detect when the slider has style attributes changed
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName !== 'style') return;
+      if (mutation.target.style.display === 'none') {
+        controlScroll('enable');
+      } else {
+        controlScroll('disable');
+      }
+    });
+  });
+
+  observer.observe(sliderWrapper, { attributes: true });
 
   // initialize the slider
   const slider = new Splide(sliderComponent, {
