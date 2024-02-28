@@ -2,10 +2,10 @@ import gsap from 'gsap';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { queryElement } from '$utils/queryElement';
 import { queryElements } from '$utils/queryElements';
 
 export const background = () => {
+  // eslint-disable-next-line no-console
   console.log('background');
 
   // const pageWrapper = queryElement('.page-wrapper');

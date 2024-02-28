@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const smoothScroll = () => {
+  // eslint-disable-next-line no-console
   console.log('smoothScroll');
 
   const lenis = new Lenis();
@@ -30,7 +31,7 @@ export const smoothScroll = () => {
         lenis.stop();
         break;
       case 'toggle':
-        switch (lenis.isStopped()) {
+        switch (lenis.isStopped) {
           case true:
             lenis.start();
             break;

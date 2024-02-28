@@ -6,6 +6,7 @@ import { queryElement } from '$utils/queryElement';
 import { queryElements } from '$utils/queryElements';
 
 export const elevation = () => {
+  // eslint-disable-next-line no-console
   console.log('elevation');
 
   // get the component
@@ -75,8 +76,9 @@ export const elevation = () => {
   // mutation observer to detect when the slider has style attributes changed
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.attributeName !== 'style') return;
-      if (mutation.target.style.display === 'none') {
+      if (mutation.type !== 'attributes' && mutation.attributeName !== 'style') return;
+      const target = mutation.target as HTMLDivElement;
+      if (target.style.display === 'none') {
         controlScroll('enable');
       } else {
         controlScroll('disable');

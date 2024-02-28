@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { queryElements } from '$utils/queryElements';
 
 export const chevrons = () => {
+  // eslint-disable-next-line no-console
   console.log('chevrons');
 
   const chevronWrappers = queryElements<HTMLDivElement>('.chevrons_wrapper');
