@@ -3,9 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const smoothScroll = () => {
-  // eslint-disable-next-line no-console
-  console.log('smoothScroll');
-
   const lenis = new Lenis();
 
   function raf(time: number) {

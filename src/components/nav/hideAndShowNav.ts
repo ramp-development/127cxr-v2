@@ -7,9 +7,6 @@ import { queryElement } from '$utils/queryElement';
 import type { NavObject } from './navObject';
 
 export const hideAndShowNav = (config: NavObject) => {
-  // eslint-disable-next-line no-console
-  console.log('hideAndShowNav');
-
   const { component } = config;
   const fullHero = queryElement<HTMLDivElement>('.full-hero');
 

@@ -3,9 +3,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { queryElements } from '$utils/queryElements';
 
 export const refreshScrollTrigger = () => {
-  // eslint-disable-next-line no-console
-  console.log('refreshScrollTrigger');
-
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type !== 'attributes' && mutation.attributeName !== 'style') return;

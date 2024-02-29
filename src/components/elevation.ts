@@ -6,9 +6,6 @@ import { queryElement } from '$utils/queryElement';
 import { queryElements } from '$utils/queryElements';
 
 export const elevation = () => {
-  // eslint-disable-next-line no-console
-  console.log('elevation');
-
   // get the component
   const component = queryElement<HTMLDivElement>('[data-component="elevation"]');
   if (!component) return;
@@ -100,6 +97,7 @@ export const elevation = () => {
   // go to slide index when opened
   detailButtons.forEach((button) => {
     const identifier = button.dataset.triggerIdentifier;
+
     const slideIndex = slideIdentifiers.findIndex(
       (slide) => slide.dataset.slideIdentifier === identifier
     );
@@ -128,9 +126,10 @@ export const elevation = () => {
   });
 
   function setArrowsPosition(): void {
+    if (!arrows) return;
+
     const arrowsTarget = arrowsTargets[0];
     const arrowsTargetRect = arrowsTarget.getBoundingClientRect();
-    console.log(arrowsTargetRect);
     arrows.style.left = `${arrowsTargetRect.left}px`;
     arrows.style.top = `${arrowsTargetRect.top}px`;
     arrows.style.width = `${arrowsTargetRect.width}px`;

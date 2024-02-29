@@ -6,9 +6,6 @@ import { queryElements } from '$utils/queryElements';
 import type { NavObject } from './navObject';
 
 export const triggerNavModals = (config: NavObject) => {
-  // eslint-disable-next-line no-console
-  console.log('triggerNavModals');
-
   // data-nav-trigger="contact" and data-nav-trigger="download"
   const triggerAttr = 'data-nav-trigger';
   const buttonAttr = 'data-nav-button';
@@ -18,9 +15,6 @@ export const triggerNavModals = (config: NavObject) => {
   const downloadsButton = queryElement<HTMLDivElement>(`[${buttonAttr}="downloads"]`, component);
   const contactButton = queryElement<HTMLDivElement>(`[${buttonAttr}="contact"]`, component);
 
-  console.log(downloadsButton);
-  console.log(contactButton);
-
   const triggers = queryElements<HTMLDivElement>(`[${triggerAttr}]`);
   triggers.forEach((trigger) => {
     trigger.addEventListener('click', () => {
@@ -29,16 +23,10 @@ export const triggerNavModals = (config: NavObject) => {
       const triggerType = trigger.getAttribute(triggerAttr);
       switch (triggerType) {
         case 'downloads':
-          if (downloadsButton) {
-            console.log('downloadsButton');
-            simulateEvent(downloadsButton, 'click');
-          }
+          if (downloadsButton) simulateEvent(downloadsButton, 'click');
           break;
         case 'contact':
-          if (contactButton) {
-            console.log('contactButton');
-            simulateEvent(contactButton, 'click');
-          }
+          if (contactButton) simulateEvent(contactButton, 'click');
           break;
         default:
           break;

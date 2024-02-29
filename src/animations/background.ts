@@ -5,12 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { queryElements } from '$utils/queryElements';
 
 export const background = () => {
-  // eslint-disable-next-line no-console
-  console.log('background');
-
-  // const pageWrapper = queryElement('.page-wrapper');
-  // if (!pageWrapper) return;
-
   const propertyNames = [
     'background',
     'heading',
@@ -22,16 +16,18 @@ export const background = () => {
     'hborder',
   ];
 
-  // const object = {
-  //   '--colors-page-wrapper--background': 'var(--colors-theme-light--background)',
-  //   '--colors-page-wrapper--heading': 'var(--colors-theme-light--heading)',
-  //   '--colors-page-wrapper--sub-heading': 'var(--colors-theme-light--sub-heading)',
-  //   '--colors-page-wrapper--text': 'var(--colors-theme-light--text)',
-  //   '--colors-page-wrapper--accent': 'var(--colors-theme-light--accent)',
-  //   '--colors-page-wrapper--muted': 'var(--colors-theme-light--muted)',
-  //   '--colors-page-wrapper--vborder': 'var(--colors-theme-light--vborder)',
-  //   '--colors-page-wrapper--hborder': 'var(--colors-theme-light--hborder)',
-  // };
+  /*
+  const object = {
+    '--colors-page-wrapper--background': 'var(--colors-theme-light--background)',
+    '--colors-page-wrapper--heading': 'var(--colors-theme-light--heading)',
+    '--colors-page-wrapper--sub-heading': 'var(--colors-theme-light--sub-heading)',
+    '--colors-page-wrapper--text': 'var(--colors-theme-light--text)',
+    '--colors-page-wrapper--accent': 'var(--colors-theme-light--accent)',
+    '--colors-page-wrapper--muted': 'var(--colors-theme-light--muted)',
+    '--colors-page-wrapper--vborder': 'var(--colors-theme-light--vborder)',
+    '--colors-page-wrapper--hborder': 'var(--colors-theme-light--hborder)',
+  };
+  */
 
   const sections = queryElements('[data-theme]');
   sections.forEach((section, index) => {
@@ -52,7 +48,6 @@ export const background = () => {
         start: 'top center',
         end: 'top 25%',
         scrub: 1,
-        // markers: true,
       },
     });
 

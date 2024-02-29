@@ -1,15 +1,11 @@
 import { queryElement } from '$utils/queryElement';
 
 import { closeNavOnBackgroundClick } from './closeNavOnBackgroundClick';
-import { hideAndShowNav } from './hideAndShowNav';
 import type { NavObject } from './navObject';
 import { navScrollLock } from './navScrollLock';
 import { triggerNavModals } from './triggerNavModals';
 
 export const nav = () => {
-  // eslint-disable-next-line no-console
-  console.log('nav');
-
   /**
    * 1. hide/show nav on load/scroll?
    * 2. body scroll lock/unlock on open/close
@@ -29,7 +25,6 @@ export const nav = () => {
     background: queryElement<HTMLDivElement>(`[${attr}="background"]`, component),
   };
 
-  // hideAndShowNav(config);
   navScrollLock(config);
   closeNavOnBackgroundClick(config);
   triggerNavModals(config);

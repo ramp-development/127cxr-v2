@@ -3,9 +3,6 @@ import { controlScroll } from '$utils/controlScroll';
 import type { NavObject } from './navObject';
 
 export const navScrollLock = (config: NavObject) => {
-  // eslint-disable-next-line no-console
-  console.log('navScrollLock');
-
   const { wOverlay } = config;
   if (!wOverlay) return;
 
