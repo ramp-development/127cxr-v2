@@ -66,12 +66,15 @@ export const elevation = () => {
   const sliderWrapper = queryElement<HTMLDivElement>(`[${attr}="slider-wrapper"]`, component);
   const sliderComponent = queryElement<HTMLDivElement>(`[${attr}="slider"]`, sliderWrapper);
   const slideIdentifiers = queryElements<HTMLDivElement>(`[data-slide-identifier]`, component);
+  const arrowTargets = queryElements<HTMLButtonElement>(`[${attr}="arrow-target"]`, component);
   const paginationLinks = queryElements<HTMLButtonElement>(
     `[${attr}="pagination-link"]`,
     component
   );
 
   if (!sliderWrapper || !sliderComponent) return;
+
+  console.log(arrowTargets);
 
   // mutation observer to detect when the slider has style attributes changed
   const observer = new MutationObserver((mutations) => {

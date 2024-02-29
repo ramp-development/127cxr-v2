@@ -29,7 +29,7 @@ export const nav = () => {
     background: queryElement<HTMLDivElement>(`[${attr}="background"]`, component),
   };
 
-  hideAndShowNav(config);
+  // hideAndShowNav(config);
   navScrollLock(config);
   closeNavOnBackgroundClick(config);
   triggerNavModals(config);
