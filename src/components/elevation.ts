@@ -66,15 +66,14 @@ export const elevation = () => {
   const sliderWrapper = queryElement<HTMLDivElement>(`[${attr}="slider-wrapper"]`, component);
   const sliderComponent = queryElement<HTMLDivElement>(`[${attr}="slider"]`, sliderWrapper);
   const slideIdentifiers = queryElements<HTMLDivElement>(`[data-slide-identifier]`, component);
-  const arrowTargets = queryElements<HTMLButtonElement>(`[${attr}="arrow-target"]`, component);
+  const arrows = queryElement<HTMLButtonElement>(`[${attr}="arrows"]`, component);
+  const arrowsTargets = queryElements<HTMLButtonElement>(`[${attr}="arrows-target"]`, component);
   const paginationLinks = queryElements<HTMLButtonElement>(
     `[${attr}="pagination-link"]`,
     component
   );
 
   if (!sliderWrapper || !sliderComponent) return;
-
-  console.log(arrowTargets);
 
   // mutation observer to detect when the slider has style attributes changed
   const observer = new MutationObserver((mutations) => {
@@ -85,6 +84,7 @@ export const elevation = () => {
         controlScroll('enable');
       } else {
         controlScroll('disable');
+        setArrowsPosition();
       }
     });
   });
@@ -126,4 +126,15 @@ export const elevation = () => {
       }
     });
   });
+
+  function setArrowsPosition(): void {
+    const arrowsTarget = arrowsTargets[0];
+    const arrowsTargetRect = arrowsTarget.getBoundingClientRect();
+    console.log(arrowsTargetRect);
+    arrows.style.left = `${arrowsTargetRect.left}px`;
+    arrows.style.top = `${arrowsTargetRect.top}px`;
+    arrows.style.width = `${arrowsTargetRect.width}px`;
+    arrows.style.height = `${arrowsTargetRect.height}px`;
+    arrows.style.opacity = '1';
+  }
 };
